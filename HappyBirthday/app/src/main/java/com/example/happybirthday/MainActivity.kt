@@ -28,7 +28,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun GreetingText(){
 
+}
 
 @Preview(showBackground = true)
 @Composable
