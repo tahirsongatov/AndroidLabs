@@ -30,7 +30,11 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
             ) {
-                GreetingText("Happy Birthday Sam!","From Tagir")
+                GreetingText(
+                    message = "Happy Birthday Sam!",
+                    from = "From Tagir",
+                    modifier = Modifier.padding(8.dp)
+                )
             }
         }
     }
@@ -40,7 +44,7 @@ class MainActivity : ComponentActivity() {
 fun GreetingText(message: String, from: String, modifier: Modifier = Modifier){
     Column (
         verticalArrangement = Arrangement.Center,
-        modifier = modifier.padding(8.dp)
+        modifier = modifier
     ){
         Text(
             text = message,
