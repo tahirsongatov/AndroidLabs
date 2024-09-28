@@ -180,3 +180,22 @@ fun printWeatherForCity(cityName: String, lowTemp: Int, highTemp: Int, chanceOfR
     println("Chance of rain: $chanceOfRain%")
     println()
 }
+// comparison
+fun main(){
+    println(1 == 1)
+    println(1 < 1)
+}
+// Traffic light
+fun main() {
+    val trafficLightColor = "Black"
+
+    if (trafficLightColor == "Red") {
+        println("Stop")
+    } else if (trafficLightColor == "Yellow") {
+        println("Slow")
+    } else if (trafficLightColor == "Green") {
+        println("Go")
+    } else {
+        println("Invalid traffic-light color")
+    }
+}
