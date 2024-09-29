@@ -659,6 +659,23 @@ fun main() {
     smartDevice = SmartLightDevice("Google Light", "Utility")
     smartDevice.turnOn()
 }
+// Function reference
+fun main(){
+	 val trickFunction = ::trick
+}
+fun trick() {
+    println("No treats!")
+}
+// Lambdas
+fun main() {
+    val trickFunction = trick
+    trick()
+    trickFunction()
+}
+
+val trick = {
+    println("No treats!")
+}
 
 
 
