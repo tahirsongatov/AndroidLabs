@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 package com.example.tiptime
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.foundation.text.KeyboardOptions
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -92,6 +94,9 @@ fun EditNumberField(modifier: Modifier = Modifier) {
     var amountInput by remember { mutableStateOf("0") }
     TextField(
         value = amountInput,
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        label = { Text(text = stringResource( R.string.bill_amount))},
         onValueChange = {str -> amountInput = str},
         modifier = modifier
     )
