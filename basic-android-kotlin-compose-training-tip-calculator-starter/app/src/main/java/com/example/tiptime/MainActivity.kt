@@ -23,6 +23,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.DrawableRes
+import androidx.compose.material3.Icon
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -48,6 +50,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
@@ -99,7 +102,8 @@ fun TipTimeLayout() {
             label = R.string.bill_amount,
             value = amountInput,
             onValueChanged = {str -> amountInput = str},
-            KeyboardOptions.Default.copy(
+            leadingIcon = R.drawable.money,
+            keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Number,
                 imeAction = ImeAction.Next
             ),
@@ -110,7 +114,8 @@ fun TipTimeLayout() {
             label = R.string.how_was_the_service,
             value = tipInput,
             onValueChanged = {str -> tipInput = str},
-            KeyboardOptions.Default.copy(
+            leadingIcon = R.drawable.percent,
+            keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Number,
                 imeAction = ImeAction.Done
             ),
@@ -156,6 +161,7 @@ fun RoundTheTipRow(
 @Composable
 fun EditNumberField(
     @StringRes label: Int,
+    @DrawableRes leadingIcon: Int,
     value: String,
     onValueChanged: (String) -> Unit,
     keyboardOptions: KeyboardOptions,
@@ -165,6 +171,7 @@ fun EditNumberField(
         value = value,
         singleLine = true,
         keyboardOptions = keyboardOptions,
+        leadingIcon = { Icon(painter = painterResource(id = leadingIcon), contentDescription = null)},
         label = { Text(text = stringResource(label)) },
         onValueChange = onValueChanged,
         modifier = modifier
