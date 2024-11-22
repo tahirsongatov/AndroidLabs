@@ -3,7 +3,7 @@ package com.example.courses.data
 import com.example.courses.R
 import com.example.courses.model.Topic
 
-object DataSource {
+class DataSource {
     val topics = listOf(
         Topic(R.string.architecture, 58, R.drawable.architecture),
         Topic(R.string.crafts, 121, R.drawable.crafts),
