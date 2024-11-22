@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
@@ -50,7 +51,7 @@ fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
                 painter = painterResource(id = affirmation.imageResourceId),
                 contentDescription = stringResource(id = affirmation.stringResourceId),
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .height(194.dp),
                 contentScale = ContentScale.Crop,
             )
@@ -66,4 +67,10 @@ fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
 @Composable
 fun AffirmationApp() {
 
+}
+
+@Preview
+@Composable
+fun AffirmationCardPreview(){
+    AffirmationCard(affirmation = Affirmation(R.string.affirmation1,R.drawable.image1))
 }
