@@ -115,3 +115,15 @@ fun WoofPreview() {
         }
     }
 }
+
+@Preview
+@Composable
+fun WoofDarkThemePreview() {
+    WoofTheme (darkTheme = true){
+        Surface(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            WoofApp()
+        }
+    }
+}
