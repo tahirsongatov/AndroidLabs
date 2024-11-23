@@ -48,8 +48,17 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun WoofTopAppBar(modifier: Modifier = Modifier) {
+
+}
+
+@Composable
 fun WoofApp() {
-    Scaffold { it ->
+    Scaffold (
+        topBar = {
+            WoofTopAppBar()
+        }
+    ) { it ->
         LazyColumn (contentPadding = it){
             items(dogs) {
                 DogItem(dog = it,
