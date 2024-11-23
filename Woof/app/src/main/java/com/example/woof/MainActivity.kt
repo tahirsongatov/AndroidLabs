@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -45,9 +46,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun WoofApp() {
-    LazyColumn {
-        items(dogs) {
-            DogItem(dog = it)
+    Scaffold { it ->
+        LazyColumn (contentPadding = it){
+            items(dogs) {
+                DogItem(dog = it,
+                    modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)))
+            }
         }
     }
 }
