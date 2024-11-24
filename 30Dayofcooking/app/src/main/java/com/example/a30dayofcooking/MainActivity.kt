@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppTheme {
-                RecipeList()
+                RecipeList(modifier = Modifier.padding(all = 16.dp))
             }
         }
     }
@@ -151,6 +151,7 @@ fun RecipeList(modifier: Modifier = Modifier){
         LazyColumn (
             contentPadding = it,
             verticalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = modifier,
         ){
             items(recipes) { recipe ->
                 RecipeCard(recipe = recipe, day = recipes.indexOf(recipe)+1)
@@ -164,7 +165,7 @@ fun RecipeList(modifier: Modifier = Modifier){
 fun RecipePreview() {
     AppTheme {
         Surface {
-            RecipeList()
+            RecipeList(modifier = Modifier.padding(all = 16.dp))
         }
     }
 }
