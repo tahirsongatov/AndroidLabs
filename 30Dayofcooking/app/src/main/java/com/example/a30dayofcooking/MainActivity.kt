@@ -24,6 +24,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -87,13 +88,16 @@ fun RecipeCard(recipe: Recipe,day: Int, modifier: Modifier = Modifier) {
         mutableStateOf(false)
     }
     val color by animateColorAsState(
-        targetValue = if (isShown) MaterialTheme.colorScheme.tertiaryContainer
-        else MaterialTheme.colorScheme.primaryContainer,
+        targetValue = if (isShown) MaterialTheme.colorScheme.background
+        else MaterialTheme.colorScheme.primary,
+    )
+    val color2 by animateColorAsState(
+        targetValue = if (isShown) MaterialTheme.colorScheme.primary
+        else MaterialTheme.colorScheme.background,
     )
     Card (
-        modifier = modifier
-            .clip(MaterialTheme.shapes.medium)
-            .background(color = color),
+        modifier = modifier.background(color = color, shape = MaterialTheme.shapes.medium),
+        colors = CardColors(color,color2,color,color)
     ) {
         Column(
             modifier = Modifier
